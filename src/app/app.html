@@ -1,3 +1,4 @@
-<h1>Gestor de Tareas</h1>
-<app-add-task (onAdd)="handleAddTask($event)"></app-add-task>
+<h1>{{ title }}</h1>
+
+<app-add-task (taskAdded)="onTaskAdded($event)"></app-add-task>
 <app-task-list [tasks]="tasks"></app-task-list>

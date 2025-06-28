@@ -9,13 +9,16 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './add-task.html',
   styleUrl: './add-task.css'
 })
-export class AddTaskComponent {
-  newTask: string = '';
+export class AddTask {
+  newTask = '';
 
-  @Output() onAdd = new EventEmitter<string>();
+  @Output() taskAdded = new EventEmitter<string>();
 
   addTask() {
-    this.onAdd.emit(this.newTask);
-    this.newTask = '';
+    const task = this.newTask.trim();
+    if (task) {
+      this.taskAdded.emit(task);
+      this.newTask = '';
+    }
   }
 }

@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
-import { AddTaskComponent } from './add-task/add-task.component';
-import { TaskListComponent } from './task-list/task-list.component';
 import { CommonModule } from '@angular/common';
+import { AddTask } from './add-task/add-task';
+import { TaskList } from './task-list/task-list';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, AddTaskComponent, TaskListComponent],
+  imports: [CommonModule, AddTask, TaskList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class AppComponent {
-  tasks: string[] = [];
+export class App {
+  protected title = 'angular-todo-app';
+  tasks: string[] = ['Aprender Angular', 'Crear ToDo App'];
 
-  handleAddTask(task: string) {
-    if (task.trim()) {
-      this.tasks.push(task.trim());
-    }
+  onTaskAdded(newTask: string) {
+    this.tasks.push(newTask);
   }
 }
